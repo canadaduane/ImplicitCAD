@@ -65,6 +65,7 @@ data SymbolicObj2 =
 	  RectR ℝ ℝ2 ℝ2
 	| Circle ℝ
 	| PolygonR ℝ [ℝ2]
+	| Tetrahedron ℝ ℝ ℝ ℝ
 	-- (Rounded) CSG
 	| Complement2 SymbolicObj2
 	| UnionR2 ℝ [SymbolicObj2]
