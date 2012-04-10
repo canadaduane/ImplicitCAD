@@ -65,7 +65,6 @@ data SymbolicObj2 =
 	  RectR ℝ ℝ2 ℝ2
 	| Circle ℝ
 	| PolygonR ℝ [ℝ2]
-	| Tetrahedron ℝ ℝ ℝ ℝ
 	-- (Rounded) CSG
 	| Complement2 SymbolicObj2
 	| UnionR2 ℝ [SymbolicObj2]
@@ -89,6 +88,7 @@ data SymbolicObj3 =
 	  Rect3R ℝ ℝ3 ℝ3
 	| Sphere ℝ
 	| Cylinder ℝ ℝ ℝ -- h r1 r2
+	| TetrahedronR ℝ ℝ ℝ ℝ ℝ -- r a b c d
 	-- Some (rounded) CSG
 	| Complement3 SymbolicObj3
 	| UnionR3 ℝ [SymbolicObj3]
