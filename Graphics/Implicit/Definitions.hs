@@ -88,7 +88,7 @@ data SymbolicObj3 =
 	  Rect3R ℝ ℝ3 ℝ3
 	| Sphere ℝ
 	| Cylinder ℝ ℝ ℝ -- h r1 r2
-	| TetrahedronR ℝ ℝ ℝ ℝ ℝ -- r a b c d
+	| TetrahedronR ℝ ℝ -- roundedness length
 	-- (Rounded) CSG
 	| Complement3 SymbolicObj3
 	| UnionR3 ℝ [SymbolicObj3]

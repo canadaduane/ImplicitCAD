@@ -29,6 +29,18 @@ getImplicit3 (Cylinder h r1 r2) = \(x,y,z) ->
 	in
 		max (d * cos θ) (abs(z-h/(2::ℝ)) - h/(2::ℝ))
 
+getImplicit3 (TetrahedronR r l) = \(x,y,z) ->
+	let
+		h = l * (sqrt 6) / 3
+		radius = h / 2
+		points = [
+			(radius * cos (pi/2), radius * sin (pi/2)),
+			(radius * cos (pi/2 + 2*pi/3), radius * sin (pi/2 + 2*pi/3)),
+			(radius * cos (pi/2 + 4*pi/3), radius * sin (pi/2 + 4*pi/3))]
+		--obj = getImplicit2 (PolygonR r points)
+	in
+		getImplicit3 (ExtrudeR r (PolygonR r points) 10)
+
 -- (Rounded) CSG
 getImplicit3 (Complement3 symbObj) = 
 	let

@@ -21,6 +21,18 @@ getBox3 (Sphere r ) = ((-r, -r, -r), (r,r,r))
 
 getBox3 (Cylinder h r1 r2) = ( (-r,-r,0), (r,r,h) ) where r = max r1 r2
 
+getBox3 (TetrahedronR r l) = 
+	let
+		h = l * (sqrt 6) / 3
+		radius = h / 2
+		points = [
+			(radius * cos (pi/2), radius * sin (pi/2)),
+			(radius * cos (pi/2 + 2*pi/3), radius * sin (pi/2 + 2*pi/3)),
+			(radius * cos (pi/2 + 4*pi/3), radius * sin (pi/2 + 4*pi/3))]
+		--obj = getImplicit2 (PolygonR r points)
+	in
+		getBox3 (ExtrudeR r (PolygonR r points) 10)
+
 -- (Rounded) CSG
 getBox3 (Complement3 symbObj) = 
 	((-infty, -infty, -infty), (infty, infty, infty)) where infty = (1::ℝ)/(0 ::ℝ)
